@@ -1,17 +1,11 @@
-
-import form from './modules/form';
-import language from './modules/changeLanguage';
+import timer from './modules/timer';
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
-    
-    let state = {
-    };
 
-    form();
-    language();
+    timer();
 
 });
 
