@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,28 +10,44 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
+
 <body>
     <div class="container">
+        <h1 class="title">Here you can quickly find out how much time is left before your birthday</h1>
         <div class="timer">
             <div class="timer__block">
                 <span id="days">00</span>
-                дней
+                days
             </div>
             <div class="timer__block">
                 <span id="hours">00</span>
-                часов
+                hours
             </div>
             <div class="timer__block">
                 <span id="minutes">00</span>
-                минут`
+                minutes
             </div>
             <div class="timer__block">
                 <span id="seconds">00</span>
-                секунд
+                seconds
             </div>
         </div>
+
+        <input name="text" type="text" placeholder="yyyy-mm-dd">
+
+        <div class="error__text">
+            <p class="error__message to__small">You have entered a number that is too small</p>
+            <p class="error__message to__big">You have entered a number that is too large</p>
+            <p class="error__message incorrect">You have entered an incorrect date</p>
+        </div>
+
+        <p class="description">Please enter your date of birth in the following format: current year, month, day. After
+            that, I will gladly
+            count how
+            many days are left until your birthday.</p>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
