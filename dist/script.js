@@ -1268,7 +1268,7 @@ const timer = id => {
         incorrect = errorText.querySelector('.incorrect');
   let timeInterval = null; // let deadLine = '2022-04-30';
 
-  console.log(new Date().getFullYear());
+  console.log(new Date().getFullYear() + 1);
   const children = [].slice.call(errorText.children);
   console.log(errorText.children);
   let deadLine = Date.parse(new Date()) + 100000000;
@@ -1325,43 +1325,53 @@ const timer = id => {
       let input = document.querySelector('[name="text"]');
       input.addEventListener('input', () => {
         if (input.value.length == 5) {
-          // if (Date.parse(`2022-${input.value}`) < Date.parse(new Date())) {
-          //     input.style.borderColor = 'red';
-          //     children.forEach(item => {
-          //         item.style.display = 'none'; 
-          //     });
-          //     toSmall.style.display = 'inline';
-          //     console.log('Замале число');
-          //     input.value = '';
-          // } else if (Date.parse(`2022-${input.value}`) - Date.parse(new Date()) > 63102225000) {
-          //     input.style.borderColor = 'red';
-          //     console.log('Завелике число');
-          //     children.forEach(item => {
-          //         item.style.display = 'none'; 
-          //     });
-          //     toBig.style.display = 'inline';
-          //     input.value = '';
-          // } else
-          if (isNaN(Date.parse(input.value))) {
-            input.style.borderColor = 'red';
-            console.log('Неправильне число');
-            children.forEach(item => {
-              item.style.display = 'none';
-            });
-            incorrect.style.display = 'inline';
-            input.value = '';
-          } else {
+          if (Date.parse(`${new Date().getFullYear()}-${input.value}`) < Date.parse(new Date())) {
+            // input.style.borderColor = 'red';
+            // children.forEach(item => {
+            //     item.style.display = 'none'; 
+            // });
+            // toSmall.style.display = 'inline';
+            // console.log('Замале число');
+            // input.value = '';
             input.style.borderColor = '';
             clearInterval(timeInterval); // deadLine = input.value;
 
-            deadLine = Date.parse(`2022-${input.value}`);
+            deadLine = Date.parse(`${new Date().getFullYear() + 1}-${input.value}`);
             setClock(id, deadLine);
             console.log(Date.parse(input.value));
             input.value = '';
             children.forEach(item => {
               item.style.display = 'none';
             });
-          }
+          } else // else if (Date.parse(`2022-${input.value}`) - Date.parse(new Date()) > 63102225000) {
+            //     input.style.borderColor = 'red';
+            //     console.log('Завелике число');
+            //     children.forEach(item => {
+            //         item.style.display = 'none'; 
+            //     });
+            //     toBig.style.display = 'inline';
+            //     input.value = '';
+            // } else
+            if (isNaN(Date.parse(input.value))) {
+              input.style.borderColor = 'red';
+              console.log('Неправильне число');
+              children.forEach(item => {
+                item.style.display = 'none';
+              });
+              incorrect.style.display = 'inline';
+              input.value = '';
+            } else {
+              input.style.borderColor = '';
+              clearInterval(timeInterval); // deadLine = input.value;
+
+              deadLine = Date.parse(`${new Date().getFullYear()}-${input.value}`);
+              setClock(id, deadLine);
+              console.log(Date.parse(input.value));
+              input.value = '';
+              children.forEach(item => {
+                item.style.display = 'none';
+              });
+            }
         }
       });
     }
